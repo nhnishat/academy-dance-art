@@ -1,5 +1,6 @@
 import { createBrowserRouter } from 'react-router-dom';
 import Main from '../Layouts/Main';
+import Home from '../Pages/Home/Home';
 import SingUp from '../Pages/SingUp/SingUp';
 import SingIn from '../Pages/Singin/SingIn';
 const router = createBrowserRouter([
@@ -7,6 +8,10 @@ const router = createBrowserRouter([
 		path: '/',
 		element: <Main />,
 		children: [
+			{
+				path: '/',
+				element: <Home />,
+			},
 			{
 				path: 'singin',
 				element: <SingIn />,
