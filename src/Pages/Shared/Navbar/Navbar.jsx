@@ -58,7 +58,7 @@ const Navbar = () => {
 
 	return (
 		<>
-			<div className="navbar bg-black rounded-xl mt-3 text-white">
+			<div className="navbar fixed z-10 bg-opacity-40 max-w-screen-xl bg-black text-white">
 				<div className="navbar-start">
 					<div className="dropdown">
 						<label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -79,7 +79,7 @@ const Navbar = () => {
 						</label>
 						<ul
 							tabIndex={0}
-							className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box lg:w-52 sm:bg-white text-black"
+							className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box lg:w-52 sm:bg-white opacity-30 text-black"
 						>
 							{navOptions}
 						</ul>
