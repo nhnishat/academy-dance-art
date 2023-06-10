@@ -2,6 +2,7 @@ import { createBrowserRouter } from 'react-router-dom';
 import Dashboard from '../Layouts/Dashboard';
 import Main from '../Layouts/Main';
 import AllClass from '../Pages/AllClasses/AllClass';
+import AllInstructor from '../Pages/AllInstrctor/AllInstructor';
 import AllUsers from '../Pages/Dashboard/AllUsers/AllUsers';
 import AllStudent from '../Pages/Dashboard/AllUsers/Instructor/instructorUser/AllStudent';
 import Error from '../Pages/Error/Error';
@@ -21,6 +22,10 @@ const router = createBrowserRouter([
 			{
 				path: '/classes',
 				element: <AllClass />,
+			},
+			{
+				path: '/instructor',
+				element: <AllInstructor />,
 			},
 			{
 				path: 'singin',

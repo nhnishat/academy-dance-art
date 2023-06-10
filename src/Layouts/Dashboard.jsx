@@ -1,11 +1,6 @@
 import { Link, Outlet } from 'react-router-dom';
-import useAdmin from '../hooks/useAdmin';
-import useInstructor from '../hooks/useInstructor';
 
 const Dashboard = () => {
-	const [isAdmin] = useAdmin();
-	const [isInstructor] = useInstructor();
-
 	return (
 		<div className="drawer lg:drawer-open">
 			<input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
@@ -21,7 +16,7 @@ const Dashboard = () => {
 			<div className="drawer-side">
 				<label htmlFor="my-drawer-2" className="drawer-overlay"></label>
 				<ul className="menu p-4 w-80 h-full bg-base-200 text-base-content">
-					{isAdmin ? (
+					{/* {isAdmin ? (
 						<li>
 							<Link to="/dashboard/alluser">AllUser</Link>
 						</li>
@@ -30,7 +25,7 @@ const Dashboard = () => {
 						<li>
 							<Link to="/dashboard/instructorUser">InstructorUser</Link>
 						</li>
-					) : null}
+					) : null} */}
 					<li>
 						<Link to="/">Home</Link>
 					</li>

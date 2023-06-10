@@ -1,54 +1,37 @@
 import { useQuery } from '@tanstack/react-query';
 import { Helmet } from 'react-helmet-async';
 import { FaTrashAlt, FaUserShield } from 'react-icons/fa';
-import Swal from 'sweetalert2';
 import useAxiosSecure from '../../../hooks/useAxiosSecure';
 
 const AllUsers = () => {
 	const [axiosSecure] = useAxiosSecure();
-	const { data: users = [], refetch } = useQuery(['users'], async () => {
+	const {
+		data: users = [],
+		//  refetch
+	} = useQuery(['users'], async () => {
 		const res = await axiosSecure.get('/users');
 		return res.data;
 	});
-	// console.log(users);
 
 	const handleMakeAdmin = (user) => {
-		fetch(`http://localhost:5000/users/admin/${user._id}`, {
-			method: 'PATCH',
-		})
-			.then((res) => res.json())
-			.then((data) => {
-				console.log(data);
-				if (data.modifiedCount) {
-					refetch();
-					Swal.fire({
-						position: 'top-end',
-						icon: 'success',
-						title: `${user.name} is an Admin Now!`,
-						showConfirmButton: false,
-						timer: 1500,
-					});
-				}
-			});
-	};
-	const handleMakeInstructor = (user) => {
-		fetch(`http://localhost:5000/users/instructor/${user._id}`, {
-			method: 'PATCH',
-		})
-			.then((res) => res.json())
-			.then((data) => {
-				console.log(data);
-				if (data.modifiedCount) {
-					refetch();
-					Swal.fire({
-						position: 'top-end',
-						icon: 'success',
-						title: `${user.name} is an instructor Now!`,
-						showConfirmButton: false,
-						timer: 1500,
-					});
-				}
-			});
+		console.log(user);
+		// fetch(`https://bistro-boss-sever-flax.vercel.app/users/admin/${user._id}`, {
+		// 	method: 'PATCH',
+		// })
+		// 	.then((res) => res.json())
+		// 	.then((data) => {
+		// 		console.log(data);
+		// 		if (data.modifiedCount) {
+		// 			refetch();
+		// 			Swal.fire({
+		// 				position: 'top-end',
+		// 				icon: 'success',
+		// 				title: `${user.name} is an Admin Now!`,
+		// 				showConfirmButton: false,
+		// 				timer: 1500,
+		// 			});
+		// 		}
+		// 	});
 	};
 
 	const handleDelete = (user) => {
@@ -72,7 +55,6 @@ const AllUsers = () => {
 							<th>Name</th>
 							<th>Email</th>
 							<th>Role</th>
-							<th>ins Role</th>
 							<th>Action</th>
 						</tr>
 					</thead>
@@ -88,18 +70,6 @@ const AllUsers = () => {
 									) : (
 										<button
 											onClick={() => handleMakeAdmin(user)}
-											className="btn btn-ghost bg-orange-600  text-white"
-										>
-											<FaUserShield></FaUserShield>
-										</button>
-									)}
-								</td>
-								<td>
-									{user.role === 'instructor' ? (
-										'instructor'
-									) : (
-										<button
-											onClick={() => handleMakeInstructor(user)}
 											className="btn btn-ghost bg-orange-600  text-white"
 										>
 											<FaUserShield></FaUserShield>
