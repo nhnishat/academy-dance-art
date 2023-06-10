@@ -95,7 +95,10 @@ const SignIn = () => {
 						<p className="m-auto p-3">
 							<small>
 								New Here?{' '}
-								<Link to="/singup" className="text-orange-600 underline">
+								<Link
+									to="/singup"
+									className="text-orange-600 underline font-medium"
+								>
 									Create an account
 								</Link>
 							</small>

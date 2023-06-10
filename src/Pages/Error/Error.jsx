@@ -1,7 +1,7 @@
 import { Link, useRouteError } from 'react-router-dom';
 
 const Error = () => {
-	const { error, status } = useRouteError();
+	const { error } = useRouteError();
 	return (
 		<div className="flex items-center h-screen p-16 bg-gray-100 text-gray-900">
 			<div className="container flex flex-col items-center justify-center mx-auto mb-20">
