@@ -1,66 +1,182 @@
 [
-    {
-      "_id": "course1",
-      "image": "https://i.ibb.co/B2qP12y/chris-yang-7e-G2-LJ8f-Ss-E-unsplash.jpg",
-      "name": "Course 1",
-      "instructor": "Instructor 1",
-      "category": "Category 1",
-      "seats": 10,
-      "price": "$99"
-    },
-    {
-      "_id": "course2",
-      "image": "https://i.ibb.co/1ZxdQHY/gordon-cowie-SUADE2-U97m-E-unsplash.jpg",
-      "name": "Course 2",
-      "instructor": "Instructor 2",
-      "category": "Category 2",
-      "seats": 8,
-      "price": "$79"
-    },
-    {
-      "_id": "course3",
-      "image": "https://i.ibb.co/jw5HysP/lucas-law-8adqe-Hc-ZENI-unsplash.jpg",
-      "name": "Course 3",
-      "instructor": "Instructor 3",
-      "category": "Category 1",
-      "seats": 5,
-      "price": "$129"
-    },
-    {
-      "_id": "course4",
-      "image": "https://i.ibb.co/8bcpQHv/samantha-weisburg-h-FTcx-ZFs-G6g-unsplash.jpg",
-      "name": "Course 4",
-      "instructor": "Instructor 4",
-      "category": "Category 2",
-      "seats": 12,
-      "price": "$89"
-    },
-    {
-      "_id": "course5",
-      "image": "https://i.ibb.co/HGhC0CW/ardian-lumi-6-Woj-wozqm-A-unsplash.jpg",
-      "name": "Course 5",
-      "instructor": "Instructor 5",
-      "category": "Category 1",
-      "seats": 15,
-      "price": "$149"
-    },
-    {
-      "_id": "course6",
-      "image": "https://i.ibb.co/s9RMBL8/miguel-angel-hernandez-Nwc-Z3-a-Evw-unsplash.jpg",
-      "name": "Course 6",
-      "instructor": "Instructor 6",
-      "category": "Category 2",
-      "seats": 7,
-      "price": "$109"
-    },
-    {
-      "_id": "course7",
-      "image": "https://i.ibb.co/PzJ7mnG/danielle-cerullo-3ck-WUna-Cxzc-unsplash.jpg",
-      "name": "Course 7",
-      "instructor": "Instructor 7",
-      "category": "Category 1",
-      "seats": 10,
-      "price": "$99"
-    }
-  ]
-  
+  {
+    "_id": 1,
+    "name": "Ballet",
+    "category": "Classical",
+    "price": 20,
+    "seat": 15,
+    "instructor": "Sarah Thompson",
+    "image": "https://i.ibb.co/4KNTF0M/david-hurley-h3w-YYNrmy28-unsplash.jpg"
+  },
+  {
+    "_id": 2,
+    "name": "Hip Hop",
+    "category": "Urban",
+    "price": 15,
+    "seat": 12,
+    "instructor": "John Rodriguez",
+    "image": "https://i.ibb.co/6nkzNYG/jeremy-bishop-cvk-FJdc-Ip-I-unsplash.jpg"
+  },
+  {
+    "_id": 3,
+    "name": "Salsa",
+    "category": "Latin",
+    "price": 25,
+    "seat": 10,
+    "instructor": "Maria Hernandez",
+    "image": "https://i.ibb.co/whtxHDc/hudson-hintze-4ydj-TMLKd-R4-unsplash.jpg"
+  },
+  {
+    "_id": 4,
+    "name": "Tap Dance",
+    "category": "Rhythm",
+    "price": 18,
+    "seat": 8,
+    "instructor": "Michael Johnson",
+    "image": "https://i.ibb.co/743JgR8/ricardo-moura-l-JWMn-Na-SI5-I-unsplash.jpg"
+  },
+  {
+    "_id": 5,
+    "name": "Contemporary",
+    "category": "Modern",
+    "price": 22,
+    "seat": 14,
+    "instructor": "Emily Wilson",
+    "image": "https://i.ibb.co/wBCXGdH/donny-jiang-Vrf-Lmiwz-XNM-unsplash-1.jpg"
+  },
+  {
+    "_id": 6,
+    "name": "Breakdance",
+    "category": "Urban",
+    "price": 17,
+    "seat": 10,
+    "instructor": "David Lee",
+    "image": "https://i.ibb.co/pWdm0Sd/javier-allegue-barros-55b-VEz-GVnz-Y-unsplash.jpg"
+  },
+  {
+    "_id": 7,
+    "name": "Ballroom",
+    "category": "Partner",
+    "price": 30,
+    "seat": 12,
+    "instructor": "Sophia Anderson",
+    "image": "https://i.ibb.co/sCx3jvp/david-hofmann-4-QPVQuf0-WMQ-unsplash.jpg"
+  },
+  {
+    "_id": 8,
+    "name": "Jazz",
+    "category": "Modern",
+    "price": 20,
+    "seat": 12,
+    "instructor": "Daniel Thompson",
+    "image": "https://i.ibb.co/QX8h54v/clem-onojeghuo-4-NAG83bhe6c-unsplash.jpg"
+  },
+  {
+    "_id": 9,
+    "name": "Flamenco",
+    "category": "Traditional",
+    "price": 25,
+    "seat": 10,
+    "instructor": "Isabella Ramirez",
+    "image": "https://i.ibb.co/NYvFYYw/dynamic-wang-p0-IHSp2-Me-Ew-unsplash.jpg"
+  },
+  {
+    "_id": 10,
+    "name": "Bollywood",
+    "category": "Cultural",
+    "price": 15,
+    "seat": 15,
+    "instructor": "Amit Patel",
+    "image": "https://i.ibb.co/QDbxDLL/jeffery-erhunse-0-XWHa-J73wts-unsplash.jpg"
+  },
+  {
+    "_id": 11,
+    "name": "Swing Dance",
+    "category": "Partner",
+    "price": 18,
+    "seat": 8,
+    "instructor": "Olivia Davis",
+    "image": "https://i.ibb.co/hBP4zDb/patrick-kool-kk-Fhg5i9-64-unsplash.jpg"
+  },
+  {
+    "_id": 12,
+    "name": "Irish Step Dance",
+    "category": "Traditional",
+    "price": 22,
+    "seat": 12,
+    "instructor": "Liam Murphy",
+    "image": "https://i.ibb.co/MnmYghh/jeffery-erhunse-8j4l-Rnah-QY4-unsplash.jpg"
+  },
+  {
+    "_id": 13,
+    "name": "Kathak",
+    "category": "Classical",
+    "price": 20,
+    "seat": 10,
+    "instructor": "Aishwarya Rao",
+    "image": "https://i.ibb.co/Zmn5c4b/leon-liu-8-E80y-Ynp87k-unsplash.jpg"
+  },
+  {
+    "_id": 14,
+    "name": "Street Dance",
+    "category": "Urban",
+    "price": 15,
+    "seat": 14,
+    "instructor": "Jason Wilson",
+    "image": "https://i.ibb.co/JCX86sG/i-am-nah-p-I0s-Nexm-My-Q-unsplash.jpg"
+  },
+  {
+    "_id": 15,
+    "name": "Tango",
+    "category": "Partner",
+    "price": 25,
+    "seat": 8,
+    "instructor": "Sophia Anderson",
+    "image": "https://i.ibb.co/PZVbmdW/hudson-hintze-pzgn0fe-LJwg-unsplash.jpg"
+  },
+  {
+    "_id": 16,
+    "name": "Belly Dance",
+    "category": "Cultural",
+    "price": 18,
+    "seat": 12,
+    "instructor": "Nadia Ahmed",
+    "image": "https://i.ibb.co/6sP9fP0/shlomi-platzman-VF0dgm-BSf9-Q-unsplash.jpg"
+  },
+  {
+    "_id": 17,
+    "name": "Samba",
+    "category": "Latin",
+    "price": 20,
+    "seat": 10,
+    "instructor": "Carlos Gonzalez",
+    "image": "https://i.ibb.co/xYDmf6t/forest-simon-Pvq2-Ik6yv6-E-unsplash.jpg"
+  },
+  {
+    "_id": 18,
+    "name": "Folk Dance",
+    "category": "Traditional",
+    "price": 15,
+    "seat": 15,
+    "instructor": "Emma Wilson",
+    "image": "https://i.ibb.co/FqWhwhx/patricia-palma-Oa-AB-e-Ywm-UU-unsplash.jpg"
+  },
+  {
+    "_id": 19,
+    "name": "Krumping",
+    "category": "Urban",
+    "price": 17,
+    "seat": 12,
+    "instructor": "Ryan Johnson",
+    "image": "https://i.ibb.co/gZjHJYP/diego-rosa-Yyk4-Om-VJAy-E-unsplash.jpg"
+  },
+  {
+    "_id": 20,
+    "name": "Pole Dance",
+    "category": "Fitness",
+    "price": 30,
+    "seat": 8,
+    "instructor": "Samantha Turner",
+    "image": "https://i.ibb.co/ggN0knk/morgan-petroski-Ls-Mxd-W1z-WEQ-unsplash.jpg"
+  }
+]

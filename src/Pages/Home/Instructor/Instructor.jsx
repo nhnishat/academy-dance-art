@@ -1,15 +1,11 @@
-import useInstructor from '../../../hooks/useInstructor';
+import useInstructors from '../../../hooks/useInstructors';
 import SectionTitle from '../../Shared/SectionTitle/SectionTitle';
 
 const Instructor = () => {
-	const [instructors, isLoading, error] = useInstructor();
+	const [instructors, isLoading] = useInstructors();
 
 	if (isLoading) {
 		return <div>Loading...</div>;
-	}
-
-	if (error) {
-		return <div>Error: {error.message}</div>;
 	}
 
 	return (

@@ -10,8 +10,8 @@ const Home = () => {
 				<title>Academy of Dance Art || Home</title>
 			</Helmet>
 			<Banner />
-			<Instructor />
 			<Classes />
+			<Instructor />
 			<h2>This is Home</h2>
 		</div>
 	);
