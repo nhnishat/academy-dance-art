@@ -4,6 +4,7 @@ import { useForm } from 'react-hook-form';
 import { FaEye, FaEyeSlash } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 import useAuth from '../../hooks/useAuth';
+import SocialLogin from '../Shared/SocialLogin/SocialLogin';
 
 const SignIn = () => {
 	const { signIn } = useAuth();
@@ -103,6 +104,7 @@ const SignIn = () => {
 								</Link>
 							</small>
 						</p>
+						<SocialLogin />
 					</div>
 				</div>
 			</div>

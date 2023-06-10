@@ -5,6 +5,7 @@ import { FaEye, FaEyeSlash } from 'react-icons/fa';
 import { Link, useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
 import useAuth from '../../hooks/useAuth';
+import SocialLogin from '../Shared/SocialLogin/SocialLogin';
 const SingUp = () => {
 	const { createUser, updateUserProfile } = useAuth();
 	const [showPassword, setShowPassword] = useState(false);
@@ -25,7 +26,19 @@ const SingUp = () => {
 			.then((result) => {
 				const user = result.user;
 				console.log(user);
+				const saveUser = {
+					name: data.name,
+					email: data.email,
+					photoURL: data.photoURL,
+				};
 				updateUserProfile(data.name, data.photoURL);
+				fetch('http://localhost:5000/users', {
+					method: 'POST',
+					headers: {
+						'content-type': 'application/json',
+					},
+					body: JSON.stringify(saveUser),
+				});
 				if (user) {
 					reset();
 					Swal.fire({
@@ -225,6 +238,7 @@ const SingUp = () => {
 								</Link>
 							</small>
 						</p>
+						<SocialLogin />
 					</div>
 				</div>
 			</div>

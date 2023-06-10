@@ -1,0 +1,66 @@
+[
+    {
+      "_id": "course1",
+      "image": "https://i.ibb.co/B2qP12y/chris-yang-7e-G2-LJ8f-Ss-E-unsplash.jpg",
+      "name": "Course 1",
+      "instructor": "Instructor 1",
+      "category": "Category 1",
+      "seats": 10,
+      "price": "$99"
+    },
+    {
+      "_id": "course2",
+      "image": "https://i.ibb.co/1ZxdQHY/gordon-cowie-SUADE2-U97m-E-unsplash.jpg",
+      "name": "Course 2",
+      "instructor": "Instructor 2",
+      "category": "Category 2",
+      "seats": 8,
+      "price": "$79"
+    },
+    {
+      "_id": "course3",
+      "image": "https://i.ibb.co/jw5HysP/lucas-law-8adqe-Hc-ZENI-unsplash.jpg",
+      "name": "Course 3",
+      "instructor": "Instructor 3",
+      "category": "Category 1",
+      "seats": 5,
+      "price": "$129"
+    },
+    {
+      "_id": "course4",
+      "image": "https://i.ibb.co/8bcpQHv/samantha-weisburg-h-FTcx-ZFs-G6g-unsplash.jpg",
+      "name": "Course 4",
+      "instructor": "Instructor 4",
+      "category": "Category 2",
+      "seats": 12,
+      "price": "$89"
+    },
+    {
+      "_id": "course5",
+      "image": "https://i.ibb.co/HGhC0CW/ardian-lumi-6-Woj-wozqm-A-unsplash.jpg",
+      "name": "Course 5",
+      "instructor": "Instructor 5",
+      "category": "Category 1",
+      "seats": 15,
+      "price": "$149"
+    },
+    {
+      "_id": "course6",
+      "image": "https://i.ibb.co/s9RMBL8/miguel-angel-hernandez-Nwc-Z3-a-Evw-unsplash.jpg",
+      "name": "Course 6",
+      "instructor": "Instructor 6",
+      "category": "Category 2",
+      "seats": 7,
+      "price": "$109"
+    },
+    {
+      "_id": "course7",
+      "image": "https://i.ibb.co/PzJ7mnG/danielle-cerullo-3ck-WUna-Cxzc-unsplash.jpg",
+      "name": "Course 7",
+      "instructor": "Instructor 7",
+      "category": "Category 1",
+      "seats": 10,
+      "price": "$99"
+    }
+  ]
+  
