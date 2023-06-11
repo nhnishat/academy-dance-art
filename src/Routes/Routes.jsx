@@ -9,6 +9,8 @@ import Error from '../Pages/Error/Error';
 import Home from '../Pages/Home/Home/Home';
 import SingUp from '../Pages/SingUp/SingUp';
 import SingIn from '../Pages/Singin/SingIn';
+import AdminRoute from './AdminRoute';
+import PrivateRoute from './PrivateRoute';
 const router = createBrowserRouter([
 	{
 		path: '/',
@@ -39,11 +41,19 @@ const router = createBrowserRouter([
 	},
 	{
 		path: 'dashboard',
-		element: <Dashboard />,
+		element: (
+			<PrivateRoute>
+				<Dashboard />
+			</PrivateRoute>
+		),
 		children: [
 			{
 				path: 'alluser',
-				element: <AllUsers />,
+				element: (
+					<AdminRoute>
+						<AllUsers />
+					</AdminRoute>
+				),
 			},
 			{
 				path: 'instructorUser',
