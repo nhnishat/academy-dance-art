@@ -9,32 +9,30 @@ const Instructor = () => {
 	}
 
 	return (
-		<>
+		<div className="container mx-auto py-8">
 			<SectionTitle
 				heading="Top Instructors"
 				subheading="Popular Instructors Section"
 			/>
-			<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+			<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-5">
 				{instructors.map((instructor) => (
 					<div
 						key={instructor._id}
-						className="card card-compact w-96 bg-base-100 shadow-xl"
+						className="bg-white shadow-md rounded-md p-4"
 					>
-						<figure>
-							<img
-								src={instructor?.image}
-								alt="Instructor"
-								className="h-96 w-full"
-							/>
-						</figure>
-						<div className="card-body">
-							<h2 className="card-title">{instructor?.name}</h2>
-							<p>{instructor?.email}</p>
+						<img
+							src={instructor?.image}
+							alt="Instructor"
+							className="w-full h-48 object-cover rounded-md mb-4"
+						/>
+						<div className="text-center">
+							<h2 className="text-xl font-semibold">{instructor?.name}</h2>
+							<p className="text-gray-500">{instructor?.email}</p>
 						</div>
 					</div>
 				))}
 			</div>
-		</>
+		</div>
 	);
 };
 

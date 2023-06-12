@@ -1,8 +1,71 @@
+import { useNavigate } from 'react-router-dom';
+import Swal from 'sweetalert2';
+import useAuth from '../../hooks/useAuth';
 import useClasses from '../../hooks/useClasses';
 import SectionTitle from '../Shared/SectionTitle/SectionTitle';
 
 const AllClass = () => {
 	const [classes] = useClasses();
+	// console.log(classes);
+
+	const { user } = useAuth();
+	const Navigate = useNavigate();
+
+	// const [enrollStatus, setEnrollStatus] = useState({});
+
+	const handleEnroll = (item) => {
+		// console.log(item);
+		if (user && user.email) {
+			const menuItem = {
+				itemId: item._id,
+				name: item.name,
+				image: item.image,
+				price: item.price,
+				category: item.category,
+				email: user.email,
+				instructor: item.instructor,
+				seat: item.available_seats,
+			};
+
+			fetch('http://localhost:5000/class', {
+				method: 'POST',
+				headers: {
+					'content-type': 'application/json',
+				},
+				body: JSON.stringify(menuItem),
+			})
+				.then((res) => res.json())
+				.then((data) => {
+					if (data.insertedId) {
+						Swal.fire({
+							position: 'top-end',
+							icon: 'success',
+							title: 'Successfully Added to the cart',
+							showConfirmButton: false,
+							timer: 1500,
+						});
+						// setEnrollStatus((prevState) => ({
+						// 	...prevState,
+						// 	[item._id]: true,
+						// }));
+					}
+				});
+		} else {
+			Swal.fire({
+				title: 'Please Login',
+				text: 'You are about to delete this class',
+				icon: 'warning',
+				showCancelButton: true,
+				confirmButtonColor: '#3085d6',
+				cancelButtonColor: '#d33',
+				confirmButtonText: 'Yes, Login Now!',
+			}).then((result) => {
+				if (result.isConfirmed) {
+					Navigate('/login');
+				}
+			});
+		}
+	};
 	return (
 		<div>
 			<div
@@ -40,10 +103,20 @@ const AllClass = () => {
 							/>
 						</figure>
 						<div className="card-body">
-							<h2 className="card-title">{danceClass.name}</h2>
-							<p>{danceClass.price}</p>
+							<h2 className="card-title">Name: {danceClass.name}</h2>
+							<h2 className="card-title">
+								instructor: {danceClass.instructor}
+							</h2>
+							<h2 className="card-title">Available seats: {danceClass.seat}</h2>
+							<h2 className="card-title">Price: ${danceClass.price}</h2>
+
 							<div className="card-actions justify-end">
-								<button className="btn btn-primary">Enroll Now</button>
+								<button
+									onClick={() => handleEnroll(danceClass)}
+									className="btn btn-primary"
+								>
+									Enroll Now
+								</button>
 							</div>
 						</div>
 					</div>

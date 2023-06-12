@@ -5,8 +5,10 @@ import AllClass from '../Pages/AllClasses/AllClass';
 import AllInstructor from '../Pages/AllInstrctor/AllInstructor';
 import AllUsers from '../Pages/Dashboard/AllUsers/AllUsers';
 import AllStudent from '../Pages/Dashboard/AllUsers/Instructor/instructorUser/AllStudent';
+import UserAllClasses from '../Pages/Dashboard/NormalUser/UserAllClasses';
 import Error from '../Pages/Error/Error';
 import Home from '../Pages/Home/Home/Home';
+import Payment from '../Pages/Payment/Payment';
 import SingUp from '../Pages/SingUp/SingUp';
 import SingIn from '../Pages/Singin/SingIn';
 import AdminRoute from './AdminRoute';
@@ -58,6 +60,14 @@ const router = createBrowserRouter([
 			{
 				path: 'instructorUser',
 				element: <AllStudent />,
+			},
+			{
+				path: 'allclasses',
+				element: <UserAllClasses />,
+			},
+			{
+				path: 'payment/:id',
+				element: <Payment />,
 			},
 		],
 	},
