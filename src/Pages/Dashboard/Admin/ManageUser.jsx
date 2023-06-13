@@ -3,7 +3,7 @@ import Swal from 'sweetalert2';
 import useAdmin from '../../../hooks/useAdmin';
 import useAxiosSecure from '../../../hooks/useAxiosSecure';
 
-const AllUsers = () => {
+const ManageUser = () => {
 	const [axiosSecure] = useAxiosSecure();
 	const [isAdmin] = useAdmin();
 	const { data: users = [], refetch } = useQuery(['users'], async () => {
@@ -94,4 +94,4 @@ const AllUsers = () => {
 	);
 };
 
-export default AllUsers;
+export default ManageUser;

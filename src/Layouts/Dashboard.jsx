@@ -24,13 +24,18 @@ const Dashboard = () => {
 				<label htmlFor="my-drawer-2" className="drawer-overlay"></label>
 				<ul className="menu p-4 w-80 h-full bg-base-200 text-base-content">
 					{isAdmin && (
-						<li>
-							<Link to="/dashboard/alluser">AllUser</Link>
-						</li>
+						<>
+							<li>
+								<Link to="/dashboard/alluser">ManageUser</Link>
+							</li>
+							<li>
+								<Link to="/dashboard/adminaddclass">Manage Add Class</Link>
+							</li>
+						</>
 					)}
 					{isInstructor && (
 						<li>
-							<Link to="/dashboard/instructorUser">InstructorUser</Link>
+							<Link to="/dashboard/addclass">Add A Class</Link>
 						</li>
 					)}
 					{user && !isAdmin && !isInstructor && (

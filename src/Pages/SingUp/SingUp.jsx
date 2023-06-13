@@ -188,39 +188,6 @@ const SingUp = () => {
 										)}
 								</div>
 
-								{/* <div className="flex">
-								<div className="form-control">
-									<label className="label">
-										<span className="label-text">Phone Number</span>
-									</label>
-									<input
-										type="text"
-										placeholder="phone number"
-										className="input input-bordered"
-										{...register('phoneNumber')}
-									/>
-									{errors.phoneNumber && (
-										<span className="text-red-600">This field is required</span>
-									)}
-								</div>
-								<div className="form-control">
-									<label className="label">
-										<span className="label-text">Address</span>
-									</label>
-									<textarea
-										placeholder="address"
-										className="textarea textarea-bordered"
-										{...register('address')}
-									>
-										{errors.phoneNumber && (
-											<span className="text-red-600">
-												This field is required
-											</span>
-										)}
-									</textarea>
-								</div>
-							</div> */}
-
 								<div className="form-control mt-6">
 									<input
 										type="submit"
@@ -234,7 +201,7 @@ const SingUp = () => {
 							<small>
 								Already have an account?{' '}
 								<Link to="/singin" className="text-orange-600 underline">
-									Login Now
+									Sing in Now
 								</Link>
 							</small>
 						</p>

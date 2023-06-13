@@ -3,8 +3,9 @@ import Dashboard from '../Layouts/Dashboard';
 import Main from '../Layouts/Main';
 import AllClass from '../Pages/AllClasses/AllClass';
 import AllInstructor from '../Pages/AllInstrctor/AllInstructor';
-import AllUsers from '../Pages/Dashboard/AllUsers/AllUsers';
-import AllStudent from '../Pages/Dashboard/AllUsers/Instructor/instructorUser/AllStudent';
+import ManageAddClass from '../Pages/Dashboard/Admin/ManageAddClass';
+import ManageUser from '../Pages/Dashboard/Admin/ManageUser';
+import AddAClass from '../Pages/Dashboard/Instructor/AddAClass';
 import UserAllClasses from '../Pages/Dashboard/NormalUser/UserAllClasses';
 import Error from '../Pages/Error/Error';
 import Home from '../Pages/Home/Home/Home';
@@ -53,13 +54,17 @@ const router = createBrowserRouter([
 				path: 'alluser',
 				element: (
 					<AdminRoute>
-						<AllUsers />
+						<ManageUser />
 					</AdminRoute>
 				),
 			},
 			{
-				path: 'instructorUser',
-				element: <AllStudent />,
+				path: 'adminaddclass',
+				element: <ManageAddClass />,
+			},
+			{
+				path: 'addclass',
+				element: <AddAClass />,
 			},
 			{
 				path: 'allclasses',
