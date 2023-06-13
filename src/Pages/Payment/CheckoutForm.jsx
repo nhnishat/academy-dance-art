@@ -69,13 +69,14 @@ const CheckoutForm = ({ item, price, id }) => {
 			// Save payment information to the server
 			const payment = {
 				email: user?.email,
+				name: user?.displayName,
 				transactionId: paymentIntent.id,
-				price,
+				price: price,
 				date: new Date(),
 				quantity: item.length,
-				cartItems: id,
+				classId: id,
 				status: 'service pending',
-				itemNames: item.name,
+				Name: item.instructor,
 			};
 
 			axiosSecure.post(`/payments/${id}`, payment).then((res) => {

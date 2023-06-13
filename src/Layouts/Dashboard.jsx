@@ -34,14 +34,21 @@ const Dashboard = () => {
 						</>
 					)}
 					{isInstructor && (
-						<li>
-							<Link to="/dashboard/addclass">Add A Class</Link>
-						</li>
+						<>
+							<li>
+								<Link to="/dashboard/addclass">Add A Class</Link>
+							</li>
+							<li>
+								<Link to="/dashboard/selectedclass">Selected Class</Link>
+							</li>
+						</>
 					)}
 					{user && !isAdmin && !isInstructor && (
-						<li>
-							<Link to="/dashboard/allclasses">All Classes</Link>
-						</li>
+						<>
+							<li>
+								<Link to="/dashboard/allclasses">All Classes</Link>
+							</li>
+						</>
 					)}
 					<div className="divider"></div>
 					<li>

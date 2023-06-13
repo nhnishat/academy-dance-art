@@ -7,6 +7,7 @@ import ManageAddClass from '../Pages/Dashboard/Admin/ManageAddClass';
 import ManageUser from '../Pages/Dashboard/Admin/ManageUser';
 import UpdateClass from '../Pages/Dashboard/Admin/UpdateClass';
 import AddAClass from '../Pages/Dashboard/Instructor/AddAClass';
+import SelectedClass from '../Pages/Dashboard/Instructor/SelectedClass';
 import UserAllClasses from '../Pages/Dashboard/NormalUser/UserAllClasses';
 import Error from '../Pages/Error/Error';
 import Home from '../Pages/Home/Home/Home';
@@ -63,17 +64,24 @@ const router = createBrowserRouter([
 				path: 'adminaddclass',
 				element: <ManageAddClass />,
 			},
-			{
-				path: 'addclass',
-				element: <AddAClass />,
-			},
+
 			{
 				path: 'updatedclass/:id',
 				element: <UpdateClass />,
 			},
+			// Instructor Route
+			{
+				path: 'addclass',
+				element: <AddAClass />,
+			},
+			// user
 			{
 				path: 'allclasses',
 				element: <UserAllClasses />,
+			},
+			{
+				path: 'selectedclass',
+				element: <SelectedClass />,
 			},
 			{
 				path: 'payment/:id',
