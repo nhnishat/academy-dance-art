@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import useRequestAdmin from '../../../hooks/useRequestAdmin';
 
 const ManageAddClass = () => {
@@ -65,7 +66,9 @@ const ManageAddClass = () => {
 						>
 							Decline
 						</button>
-						<button className="btn btn-outline btn-warning">Update</button>
+						<Link to={`/dashboard/updatedclass/${admin._id}`}>
+							<button className="btn btn-outline btn-warning">Update</button>
+						</Link>
 						<button className="btn btn-outline btn-info">Feedback</button>
 					</div>
 				</div>

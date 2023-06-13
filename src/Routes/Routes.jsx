@@ -5,6 +5,7 @@ import AllClass from '../Pages/AllClasses/AllClass';
 import AllInstructor from '../Pages/AllInstrctor/AllInstructor';
 import ManageAddClass from '../Pages/Dashboard/Admin/ManageAddClass';
 import ManageUser from '../Pages/Dashboard/Admin/ManageUser';
+import UpdateClass from '../Pages/Dashboard/Admin/UpdateClass';
 import AddAClass from '../Pages/Dashboard/Instructor/AddAClass';
 import UserAllClasses from '../Pages/Dashboard/NormalUser/UserAllClasses';
 import Error from '../Pages/Error/Error';
@@ -65,6 +66,10 @@ const router = createBrowserRouter([
 			{
 				path: 'addclass',
 				element: <AddAClass />,
+			},
+			{
+				path: 'updatedclass/:id',
+				element: <UpdateClass />,
 			},
 			{
 				path: 'allclasses',
