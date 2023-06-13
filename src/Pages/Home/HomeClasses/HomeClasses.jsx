@@ -52,7 +52,7 @@ const HomeClasses = () => {
 				confirmButtonText: 'Yes, Login Now!',
 			}).then((result) => {
 				if (result.isConfirmed) {
-					navigate('/login');
+					navigate('/singin');
 				}
 			});
 		}

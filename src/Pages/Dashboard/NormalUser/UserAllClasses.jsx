@@ -5,7 +5,7 @@ import useClass from '../../../hooks/useClass';
 
 const UserAllClasses = () => {
 	const [enrollClass, refetch] = useClass();
-	console.log(enrollClass);
+
 	const handleDeleteOne = (item) => {
 		Swal.fire({
 			title: 'Are you sure?',
@@ -31,26 +31,18 @@ const UserAllClasses = () => {
 		});
 	};
 
-	// const handlePayment = (id) => {
-	// 	console.log('this is is', id, enrollClass);
-	// };
-
 	return (
-		<div>
-			<div className="uppercase flex font-semibold justify-evenly p-5 w-full">
-				<h2 className="text-3xl">Total Items: {enrollClass.length}</h2>
-				{/* <h2 className="text-3xl">Total price: ${sum}</h2> */}
+		<div className="container mx-auto py-8">
+			<div className="flex items-center justify-between">
+				<h2 className="text-3xl font-semibold">
+					Total Items: {enrollClass.length}
+				</h2>
 			</div>
 			<div className="overflow-x-auto">
-				<table className="table">
-					{/* head */}
+				<table className="table w-full">
 					<thead>
 						<tr>
-							<th>
-								<label>
-									<input type="checkbox" className="checkbox" />
-								</label>
-							</th>
+							<th>#</th>
 							<th>ITEM IMAGE</th>
 							<th>ITEM NAME</th>
 							<th>PRICE</th>
@@ -59,17 +51,17 @@ const UserAllClasses = () => {
 						</tr>
 					</thead>
 					<tbody>
-						{/* row 1 */}
 						{enrollClass.map((item, index) => (
 							<tr key={item._id}>
-								<th>{index + 1}</th>
+								<td className="w-16">{index + 1}</td>
 								<td>
 									<div className="flex items-center space-x-3">
 										<div className="avatar">
 											<div className="mask mask-squircle w-12 h-12">
 												<img
 													src={item.image}
-													alt="Avatar Tailwind CSS Component"
+													alt="Avatar"
+													className="w-full h-full"
 												/>
 											</div>
 										</div>
@@ -78,29 +70,24 @@ const UserAllClasses = () => {
 								<td>
 									<div className="font-bold">{item.name}</div>
 								</td>
-								<th>
+								<td>
 									<button className="btn btn-ghost btn-xs text-end">
 										${item.price}
 									</button>
-								</th>
-								<th>
+								</td>
+								<td>
 									<Link to={`/dashboard/payment/${item._id}`}>
-										<button
-											className="btn btn-neutral text-white"
-											// onClick={() => handlePayment(item)}
-										>
-											Payment Now
-										</button>
+										<button className="btn btn-primary">Payment Now</button>
 									</Link>
-								</th>
-								<th>
+								</td>
+								<td>
 									<button
 										onClick={() => handleDeleteOne(item)}
 										className="btn btn-ghost btn-md bg-red-600 text-white"
 									>
 										<FaTrashAlt />
 									</button>
-								</th>
+								</td>
 							</tr>
 						))}
 					</tbody>

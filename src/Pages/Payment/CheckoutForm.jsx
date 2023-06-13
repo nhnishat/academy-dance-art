@@ -5,7 +5,6 @@ import useAxiosSecure from '../../hooks/useAxiosSecure';
 import './Checkout.css';
 
 const CheckoutForm = ({ item, price, id }) => {
-	// const { name } = cart;
 	const stripe = useStripe();
 	const elements = useElements();
 	const { user } = useAuth();
@@ -89,39 +88,45 @@ const CheckoutForm = ({ item, price, id }) => {
 	};
 
 	return (
-		<>
-			<form className="w-2/3 m-8" onSubmit={handleSubmit}>
-				<CardElement
-					options={{
-						style: {
-							base: {
-								fontSize: '16px',
-								color: '#424770',
-								'::placeholder': {
-									color: '#aab7c4',
+		<div className="max-w-md mx-auto bg-white rounded-md shadow-lg p-6 mt-8">
+			<form onSubmit={handleSubmit}>
+				<div className="form-control">
+					<label htmlFor="card-element" className="label">
+						Card Information
+					</label>
+					<CardElement
+						id="card-element"
+						options={{
+							style: {
+								base: {
+									fontSize: '16px',
+									color: '#424770',
+									'::placeholder': {
+										color: '#aab7c4',
+									},
+								},
+								invalid: {
+									color: '#9e2146',
 								},
 							},
-							invalid: {
-								color: '#9e2146',
-							},
-						},
-					}}
-				/>
+						}}
+					/>
+				</div>
 				<button
-					className="btn btn-primary btn-sm mt-4"
+					className="btn btn-primary mt-4"
 					type="submit"
 					disabled={!stripe || !clientSecret || processing}
 				>
 					Pay
 				</button>
 			</form>
-			{cardError && <p className="text-red-600 ml-8">{cardError}</p>}
+			{cardError && <p className="text-red-600 mt-4">{cardError}</p>}
 			{transactionId && (
-				<p className="text-green-500">
+				<p className="text-green-500 mt-4">
 					Transaction complete with transactionId: {transactionId}
 				</p>
 			)}
-		</>
+		</div>
 	);
 };
 

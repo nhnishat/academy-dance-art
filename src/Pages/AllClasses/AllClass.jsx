@@ -6,15 +6,10 @@ import SectionTitle from '../Shared/SectionTitle/SectionTitle';
 
 const AllClass = () => {
 	const [classes] = useClasses();
-	// console.log(classes);
-
 	const { user } = useAuth();
-	const Navigate = useNavigate();
-
-	// const [enrollStatus, setEnrollStatus] = useState({});
+	const navigate = useNavigate();
 
 	const handleEnroll = (item) => {
-		// console.log(item);
 		if (user && user.email) {
 			const menuItem = {
 				itemId: item._id,
@@ -40,14 +35,10 @@ const AllClass = () => {
 						Swal.fire({
 							position: 'top-end',
 							icon: 'success',
-							title: 'Successfully Added to the cart',
+							title: 'Successfully Added A Class',
 							showConfirmButton: false,
 							timer: 1500,
 						});
-						// setEnrollStatus((prevState) => ({
-						// 	...prevState,
-						// 	[item._id]: true,
-						// }));
 					}
 				});
 		} else {
@@ -61,11 +52,12 @@ const AllClass = () => {
 				confirmButtonText: 'Yes, Login Now!',
 			}).then((result) => {
 				if (result.isConfirmed) {
-					Navigate('/login');
+					navigate('/singin');
 				}
 			});
 		}
 	};
+
 	return (
 		<div>
 			<div
@@ -92,25 +84,31 @@ const AllClass = () => {
 				</div>
 			</div>
 			<SectionTitle subheading={'Dance'} heading={'Top Dance Classes'} />
-			<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-16">
-				{classes.map((danceClass) => (
-					<div key={danceClass._id} className="card w-96 bg-base-100 shadow-xl">
-						<figure>
-							<img
-								src={danceClass.image}
-								style={{ width: '100%', height: '600px' }}
-								alt="Shoes"
-							/>
-						</figure>
-						<div className="card-body">
-							<h2 className="card-title">Name: {danceClass.name}</h2>
-							<h2 className="card-title">
-								instructor: {danceClass.instructor}
-							</h2>
-							<h2 className="card-title">Available seats: {danceClass.seat}</h2>
-							<h2 className="card-title">Price: ${danceClass.price}</h2>
-
-							<div className="card-actions justify-end">
+			<div className="container mx-auto py-8">
+				<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+					{classes.map((danceClass) => (
+						<div
+							key={danceClass._id}
+							className="bg-white shadow-md rounded-md p-4"
+						>
+							<figure>
+								<img
+									src={danceClass.image}
+									alt="Class"
+									className="w-full h-48 object-cover rounded-md mb-4"
+								/>
+							</figure>
+							<div className="text-center">
+								<h2 className="text-lg font-semibold mb-2">
+									{danceClass.name}
+								</h2>
+								<p className="text-gray-500 mb-2">
+									Instructor: {danceClass.instructor}
+								</p>
+								<p className="text-gray-500 mb-2">
+									Available Seats: {danceClass.seat}
+								</p>
+								<p className="text-gray-500 mb-2">Price: ${danceClass.price}</p>
 								<button
 									onClick={() => handleEnroll(danceClass)}
 									className="btn btn-primary"
@@ -119,8 +117,8 @@ const AllClass = () => {
 								</button>
 							</div>
 						</div>
-					</div>
-				))}
+					))}
+				</div>
 			</div>
 		</div>
 	);

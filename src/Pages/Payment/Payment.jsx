@@ -14,13 +14,12 @@ const Payment = () => {
 	const { id } = useParams();
 
 	const selectedClass = enrollClass.find((item) => item._id === id);
-	const price = selectedClass.price;
+	const price = selectedClass?.price;
 	console.log(price);
 
 	return (
 		<div className="w-full">
-			<SectionTitle subHeading="please process" heading="Payment" />
-			<h2 className="text-3xl">Payment to...</h2>
+			<SectionTitle subheading="please process to" heading="Payment" />
 			{selectedClass && (
 				<Elements stripe={stripePromise}>
 					<CheckoutForm item={selectedClass} id={id} price={price} />
