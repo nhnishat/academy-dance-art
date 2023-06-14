@@ -48,6 +48,9 @@ const Dashboard = () => {
 							<li>
 								<Link to="/dashboard/selectedclass">Enroll Class</Link>
 							</li>
+							<li>
+								<Link to="/dashboard/history">Payment History</Link>
+							</li>
 						</>
 					)}
 					<div className="divider"></div>

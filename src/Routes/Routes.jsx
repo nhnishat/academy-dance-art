@@ -8,6 +8,7 @@ import ManageUser from '../Pages/Dashboard/Admin/ManageUser';
 import UpdateClass from '../Pages/Dashboard/Admin/UpdateClass';
 import AddAClass from '../Pages/Dashboard/Instructor/AddAClass';
 import EnrollClass from '../Pages/Dashboard/NormalUser/EnrollClass';
+import PaymentHistory from '../Pages/Dashboard/NormalUser/PaymentHistory';
 import UserAllClasses from '../Pages/Dashboard/NormalUser/UserAllClasses';
 import Error from '../Pages/Error/Error';
 import Home from '../Pages/Home/Home/Home';
@@ -86,6 +87,10 @@ const router = createBrowserRouter([
 			{
 				path: 'payment/:id',
 				element: <Payment />,
+			},
+			{
+				path: 'history',
+				element: <PaymentHistory />,
 			},
 		],
 	},
