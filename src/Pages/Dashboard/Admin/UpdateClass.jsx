@@ -1,7 +1,10 @@
+import { Helmet } from 'react-helmet-async';
 import { useForm } from 'react-hook-form';
 import { useParams } from 'react-router-dom';
+import Swal from 'sweetalert2';
 import useAuth from '../../../hooks/useAuth';
 import useAxiosSecure from '../../../hooks/useAxiosSecure';
+import SectionTitle from '../../Shared/SectionTitle/SectionTitle';
 
 const img_hosting = import.meta.env.VITE_TOKEN;
 const UpdateClass = () => {
@@ -18,11 +21,48 @@ const UpdateClass = () => {
 	console.log(img_hosting);
 	const [axiosSecure] = useAxiosSecure();
 
-	const params = useParams();
-	const id = params.id;
+	const { id } = useParams();
+	// const id = params.id;
 
+	// const onSubmit = (data) => {
+	// 	console.log(data);
+	// 	const formData = new FormData();
+	// 	formData.append('image', data?.image[0]);
+	// 	fetch(img_hosting_url, {
+	// 		method: 'POST',
+	// 		body: formData,
+	// 	})
+	// 		.then((res) => res.json())
+	// 		.then((imgResponse) => {
+	// 			console.log(imgResponse);
+	// 			if (imgResponse) {
+	// 				const imgURL = imgResponse.data.display_url;
+	// 				console.log(imgURL);
+	// 				const { name, price, seat } = data;
+	// 				const newItem = {
+	// 					name: name,
+	// 					image: imgURL,
+	// 					price: price,
+	// 					seat: seat,
+	// 					email: user?.email,
+	// 					instructor: user?.displayName,
+	// 				};
+	// 				console.log(newItem);
+	// 				axiosSecure.patch(`/requestadmin/${id}`, newItem).then((data) => {
+	// 					console.log('after posting new menu items', data.data);
+	// 					reset();
+	// 					if (data.data.modifiedCount > 0) {
+	// 						Swal.fire(
+	// 							'ModiFied It!',
+	// 							'Your file has been Modified.',
+	// 							'success'
+	// 						);
+	// 					}
+	// 				});
+	// 			}
+	// 		});
+	// };
 	const onSubmit = (data) => {
-		console.log(data);
 		const formData = new FormData();
 		formData.append('image', data?.image[0]);
 		fetch(img_hosting_url, {
@@ -31,137 +71,146 @@ const UpdateClass = () => {
 		})
 			.then((res) => res.json())
 			.then((imgResponse) => {
-				console.log(imgResponse);
 				if (imgResponse) {
 					const imgURL = imgResponse.data.display_url;
-					console.log(imgURL);
-					const { name, price, seat } = data;
+					const { name, price, seat, email, instructor } = data;
 					const newItem = {
 						name: name,
 						image: imgURL,
 						price: price,
 						seat: seat,
-						email: user?.email,
-						instructor: user?.displayName,
+						email: email,
+						instructor: instructor,
 					};
-					console.log(data);
 					axiosSecure.patch(`/requestadmin/${id}`, newItem).then((data) => {
-						console.log('after posting new menu items', data.data);
 						reset();
+						if (data.data.modifiedCount > 0) {
+							Swal.fire(
+								'Modified It!',
+								'Your file has been modified.',
+								'success'
+							);
+						}
 					});
 				}
 			});
 	};
 
 	return (
-		<div className="flex items-center justify-center w-full h-screen px-5 bg-gray-200">
-			<div className="w-full  p-6 bg-white rounded-lg shadow-lg">
-				<form onSubmit={handleSubmit(onSubmit)}>
-					<div className="flex  gap-2">
-						<div className="mb-4 w-full">
-							<label htmlFor="example" className="block text-sm">
-								Name:
+		<div>
+			<SectionTitle heading={'Update A class'}></SectionTitle>
+			<div className="flex items-center justify-center w-full my-5">
+				<Helmet>
+					<title>Academy of Dance Art || Updated A Class</title>
+				</Helmet>
+				<div className="w-full  p-6 bg-white rounded-lg shadow-lg">
+					<form onSubmit={handleSubmit(onSubmit)}>
+						<div className="flex  gap-2">
+							<div className="mb-4 w-full">
+								<label htmlFor="example" className="block text-sm">
+									Name:
+								</label>
+								<input
+									type="text"
+									id="name"
+									placeholder="Name"
+									className="input input-bordered w-full"
+									{...register('name', { required: false })}
+								/>
+								{errors.name && (
+									<p className="text-red-500 text-xs">This field is required</p>
+								)}
+							</div>
+							<div className="mb-4 w-full">
+								<label htmlFor="example" className="block text-sm">
+									Instructor Name:
+								</label>
+								<input
+									type="text"
+									id="example"
+									className="input input-bordered w-full"
+									defaultValue={user.displayName}
+									readOnly
+									placeholder="Instructor name"
+									name="instructor"
+									{...register('instructor', { required: false })}
+								/>
+								{errors.instructor && (
+									<p className="text-red-500 text-xs">This field is required</p>
+								)}
+							</div>
+						</div>
+						<div className="flex  gap-2">
+							<div className="mb-4 w-full">
+								<label htmlFor="example" className="block text-sm">
+									Price:
+								</label>
+								<input
+									type="number"
+									id="price"
+									placeholder="price"
+									className="input input-bordered w-full"
+									{...register('price', { required: false })}
+								/>
+								{errors.price && (
+									<p className="text-red-500 text-xs">This field is required</p>
+								)}
+							</div>
+							<div className="mb-4 w-full">
+								<label htmlFor="example" className="block text-sm">
+									Instructor Email
+								</label>
+								<input
+									type="email"
+									id="example"
+									placeholder="email"
+									defaultValue={user?.email}
+									readOnly
+									className="input input-bordered w-full"
+									{...register('email')}
+								/>
+								{errors.email && (
+									<p className="text-red-500 text-xs">This field is required</p>
+								)}
+							</div>
+						</div>
+
+						<div className="mb-4">
+							<label htmlFor="exampleRequired" className="block text-sm">
+								Seat*
 							</label>
 							<input
 								type="text"
-								id="name"
-								placeholder="Name"
+								id="exampleRequired"
+								placeholder="seat"
 								className="input input-bordered w-full"
-								{...register('name', { required: false })}
+								{...register('seat', { required: false })}
 							/>
-							{errors.name && (
+							{errors.seat && (
 								<p className="text-red-500 text-xs">This field is required</p>
 							)}
 						</div>
-						<div className="mb-4 w-full">
-							<label htmlFor="example" className="block text-sm">
-								Instructor Name:
-							</label>
-							<input
-								type="text"
-								id="example"
-								className="input input-bordered w-full"
-								defaultValue={user.displayName}
-								readOnly
-								placeholder="Instructor name"
-								name="instructor"
-								{...register('instructor', { required: false })}
-							/>
-							{errors.instructor && (
-								<p className="text-red-500 text-xs">This field is required</p>
-							)}
-						</div>
-					</div>
-					<div className="flex  gap-2">
-						<div className="mb-4 w-full">
-							<label htmlFor="example" className="block text-sm">
-								Price:
-							</label>
-							<input
-								type="number"
-								id="price"
-								placeholder="price"
-								className="input input-bordered w-full"
-								{...register('price', { required: false })}
-							/>
-							{errors.price && (
-								<p className="text-red-500 text-xs">This field is required</p>
-							)}
-						</div>
-						<div className="mb-4 w-full">
-							<label htmlFor="example" className="block text-sm">
-								Instructor Email
-							</label>
-							<input
-								type="email"
-								id="example"
-								placeholder="email"
-								defaultValue={user?.email}
-								readOnly
-								className="input input-bordered w-full"
-								{...register('email')}
-							/>
-							{errors.email && (
-								<p className="text-red-500 text-xs">This field is required</p>
-							)}
-						</div>
-					</div>
 
-					<div className="mb-4">
-						<label htmlFor="exampleRequired" className="block text-sm">
-							Seat*
-						</label>
+						<div className="form-control w-full my-4">
+							<label className="label">
+								<span className="label-text">Pick an Image*</span>
+							</label>
+							<input
+								type="file"
+								className="file-input file-input-bordered w-full"
+								{...register('image', { required: false })}
+							/>
+							{errors.image && (
+								<span className="text-red-500">Image is required.</span>
+							)}
+						</div>
 						<input
-							type="text"
-							id="exampleRequired"
-							placeholder="seat"
-							className="input input-bordered w-full"
-							{...register('seat', { required: false })}
+							type="submit"
+							value="Submit"
+							className="btn btn-primary w-full my-3"
 						/>
-						{errors.seat && (
-							<p className="text-red-500 text-xs">This field is required</p>
-						)}
-					</div>
-
-					<div className="form-control w-full my-4">
-						<label className="label">
-							<span className="label-text">Pick an Image*</span>
-						</label>
-						<input
-							type="file"
-							className="file-input file-input-bordered w-full"
-							{...register('image', { required: false })}
-						/>
-						{errors.image && (
-							<span className="text-red-500">Image is required.</span>
-						)}
-					</div>
-					<input
-						type="submit"
-						value="Submit"
-						className="btn btn-primary w-full my-3"
-					/>
-				</form>
+					</form>
+				</div>
 			</div>
 		</div>
 	);

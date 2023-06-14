@@ -1,9 +1,10 @@
+import { Helmet } from 'react-helmet-async';
 import { Link } from 'react-router-dom';
+import Swal from 'sweetalert2';
 import useRequestAdmin from '../../../hooks/useRequestAdmin';
 
 const ManageAddClass = () => {
 	const [adminRequest, refetch] = useRequestAdmin();
-	// const axiosSecure = useAxiosSecure();
 
 	const handleAccept = (admin) => {
 		fetch(
@@ -11,7 +12,7 @@ const ManageAddClass = () => {
 			{
 				method: 'POST',
 				headers: {
-					'content-type': 'application/json',
+					'Content-Type': 'application/json',
 				},
 				body: JSON.stringify(admin),
 			}
@@ -20,23 +21,46 @@ const ManageAddClass = () => {
 			.then((data) => {
 				console.log(data);
 				refetch();
+				if (data.result.insertedId) {
+					Swal.fire('SuccessFull!', 'Your file has been Aproved.', 'success');
+				}
 			});
 	};
 
 	const handleDecline = (id) => {
-		fetch(`https://academy-of-dace-art-server.vercel.app/requestadmin/${id}`, {
-			method: 'DELETE',
-		})
-			.then((res) => res.json())
-			.then((data) => {
-				console.log(data);
-				refetch();
-			});
+		Swal.fire({
+			title: 'Are you sure?',
+			text: "You won't be able to revert this!",
+			icon: 'warning',
+			showCancelButton: true,
+			confirmButtonColor: '#3085d6',
+			cancelButtonColor: '#d33',
+			confirmButtonText: 'Yes, delete it!',
+		}).then((result) => {
+			if (result.isConfirmed) {
+				fetch(
+					`https://academy-of-dace-art-server.vercel.app/requestadmin/${id}`,
+					{
+						method: 'DELETE',
+					}
+				)
+					.then((res) => res.json())
+					.then((data) => {
+						console.log(data);
+						refetch();
+						if (data.data.deletedCount > 0) {
+							Swal.fire('Deleted!', 'Your file has been deleted.', 'success');
+						}
+					});
+			}
+		});
 	};
 
-	console.log(adminRequest);
 	return (
 		<div>
+			<Helmet>
+				<title>Academy of Dance Art || Manage Item</title>
+			</Helmet>
 			{adminRequest.map((admin) => (
 				<div
 					key={admin._id}
