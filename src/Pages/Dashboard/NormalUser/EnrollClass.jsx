@@ -1,6 +1,8 @@
+import { Helmet } from 'react-helmet-async';
 import { FaTrashAlt } from 'react-icons/fa';
 import Swal from 'sweetalert2';
 import useRequestInstructor from '../../../hooks/useRequestInstructor';
+import SectionTitle from '../../Shared/SectionTitle/SectionTitle';
 
 const EnrollClass = () => {
 	const [InstructorRequest, refetch] = useRequestInstructor();
@@ -39,7 +41,10 @@ const EnrollClass = () => {
 
 	return (
 		<div>
-			<h2>enroll class</h2>
+			<SectionTitle heading={'enroll class'} />
+			<Helmet>
+				<title>Academy of Dance Art || Enrol Class</title>
+			</Helmet>
 
 			<div className="overflow-x-auto">
 				<table className="table">

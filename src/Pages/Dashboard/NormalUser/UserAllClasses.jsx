@@ -1,7 +1,9 @@
+import { Helmet } from 'react-helmet-async';
 import { FaTrashAlt } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 import Swal from 'sweetalert2';
 import useClass from '../../../hooks/useClass';
+import SectionTitle from '../../Shared/SectionTitle/SectionTitle';
 
 const UserAllClasses = () => {
 	const [enrollClass, refetch] = useClass();
@@ -36,6 +38,10 @@ const UserAllClasses = () => {
 
 	return (
 		<div className="container mx-auto py-8">
+			<SectionTitle heading={'All Class'} />
+			<Helmet>
+				<title>Academy of Dance Art || All Class</title>
+			</Helmet>
 			<div className="flex items-center justify-between">
 				<h2 className="text-3xl font-semibold">
 					Total Items: {enrollClass.length}

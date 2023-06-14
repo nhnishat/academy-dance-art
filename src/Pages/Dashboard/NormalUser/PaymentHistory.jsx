@@ -1,4 +1,5 @@
 import useRequestInstructor from '../../../hooks/useRequestInstructor';
+import SectionTitle from '../../Shared/SectionTitle/SectionTitle';
 
 const PaymentHistory = () => {
 	const [InstructorRequest] = useRequestInstructor();
@@ -10,6 +11,7 @@ const PaymentHistory = () => {
 
 	return (
 		<div>
+			<SectionTitle heading={'Payment History'} />
 			<div className="overflow-x-auto">
 				<table className="table">
 					{/* head */}

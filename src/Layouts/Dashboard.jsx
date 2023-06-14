@@ -32,12 +32,16 @@ const Dashboard = () => {
 						<>
 							<li>
 								<Link to="/dashboard/alluser">
-									<Fade>ManageUser</Fade>
+									<Fade cascade damping={0.1}>
+										ManageUser
+									</Fade>
 								</Link>
 							</li>
 							<li>
 								<Link to="/dashboard/adminaddclass">
-									<Fade>Manage Add Class</Fade>
+									<Fade cascade damping={0.1}>
+										Manage Add Class
+									</Fade>
 								</Link>
 							</li>
 						</>
@@ -46,7 +50,9 @@ const Dashboard = () => {
 						<>
 							<li>
 								<Link to="/dashboard/addclass">
-									<Fade>Add A Class</Fade>
+									<Fade cascade damping={0.1}>
+										Add A Class
+									</Fade>
 								</Link>
 							</li>
 						</>
@@ -55,17 +61,23 @@ const Dashboard = () => {
 						<>
 							<li>
 								<Link to="/dashboard/allclasses">
-									<Fade>All Classes</Fade>
+									<Fade cascade damping={0.1}>
+										All Classes
+									</Fade>
 								</Link>
 							</li>
 							<li>
 								<Link to="/dashboard/selectedclass">
-									<Fade>Enroll Class</Fade>
+									<Fade cascade damping={0.1}>
+										Enroll Class
+									</Fade>
 								</Link>
 							</li>
 							<li>
 								<Link to="/dashboard/history">
-									<Fade>Payment History</Fade>
+									<Fade cascade damping={0.1}>
+										Payment History
+									</Fade>
 								</Link>
 							</li>
 						</>

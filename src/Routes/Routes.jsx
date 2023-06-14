@@ -63,12 +63,20 @@ const router = createBrowserRouter([
 			},
 			{
 				path: 'adminaddclass',
-				element: <ManageAddClass />,
+				element: (
+					<AdminRoute>
+						<ManageAddClass />
+					</AdminRoute>
+				),
 			},
 
 			{
 				path: 'updatedclass/:id',
-				element: <UpdateClass />,
+				element: (
+					<AdminRoute>
+						<UpdateClass />
+					</AdminRoute>
+				),
 			},
 			// Instructor Route
 			{
