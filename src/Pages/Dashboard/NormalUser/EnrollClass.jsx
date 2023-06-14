@@ -16,9 +16,12 @@ const EnrollClass = () => {
 			confirmButtonText: 'Yes, absoultly delete it!',
 		}).then((result) => {
 			if (result.isConfirmed) {
-				fetch(`http://localhost:5000/payments/${user._id}`, {
-					method: 'DELETE',
-				})
+				fetch(
+					`https://academy-of-dace-art-server.vercel.app/payments/${user._id}`,
+					{
+						method: 'DELETE',
+					}
+				)
 					.then((res) => res.json())
 					.then((data) => {
 						if (data.deletedCount > 0) {

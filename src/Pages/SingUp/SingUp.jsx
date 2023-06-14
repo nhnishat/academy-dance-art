@@ -32,7 +32,7 @@ const SingUp = () => {
 					photoURL: data.photoURL,
 				};
 				updateUserProfile(data.name, data.photoURL);
-				fetch('http://localhost:5000/users', {
+				fetch('https://academy-of-dace-art-server.vercel.app/users', {
 					method: 'POST',
 					headers: {
 						'content-type': 'application/json',
@@ -44,7 +44,7 @@ const SingUp = () => {
 					Swal.fire({
 						position: 'top-end',
 						icon: 'success',
-						title: 'User created successfully.',
+						title: 'user create in successfully',
 						showConfirmButton: false,
 						timer: 1500,
 					});

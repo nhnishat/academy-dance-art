@@ -38,9 +38,6 @@ const Dashboard = () => {
 							<li>
 								<Link to="/dashboard/addclass">Add A Class</Link>
 							</li>
-							<li>
-								<Link to="/dashboard/selectedclass">Selected Class</Link>
-							</li>
 						</>
 					)}
 					{user && !isAdmin && !isInstructor && (

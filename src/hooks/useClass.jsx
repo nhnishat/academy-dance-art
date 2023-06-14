@@ -4,7 +4,9 @@ const useClass = () => {
 	const { data: enrollClass = [], refetch } = useQuery({
 		queryKey: ['classes'],
 		queryFn: async () => {
-			const res = await fetch('http://localhost:5000/class');
+			const res = await fetch(
+				'https://academy-of-dace-art-server.vercel.app/class'
+			);
 			return res.json();
 		},
 	});

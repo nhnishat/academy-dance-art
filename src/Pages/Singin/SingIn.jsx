@@ -2,12 +2,18 @@ import { useState } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { useForm } from 'react-hook-form';
 import { FaEye, FaEyeSlash } from 'react-icons/fa';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
+import Swal from 'sweetalert2';
 import useAuth from '../../hooks/useAuth';
 import SocialLogin from '../Shared/SocialLogin/SocialLogin';
 
 const SignIn = () => {
 	const { signIn } = useAuth();
+	const navigate = useNavigate();
+	const location = useLocation();
+
+	const from = location.state?.from?.pathname || '/';
+
 	const [showPassword, setShowPassword] = useState(false);
 	const {
 		register,
@@ -21,7 +27,16 @@ const SignIn = () => {
 			.then((result) => {
 				const loggedUser = result.user;
 				console.log(loggedUser);
+				Swal.fire({
+					position: 'top-end',
+					icon: 'success',
+					title: 'user login in successfully',
+					showConfirmButton: false,
+					timer: 1500,
+				});
+				navigate(from, { replace: true });
 			})
+
 			.catch((error) => {
 				console.log(error);
 			});

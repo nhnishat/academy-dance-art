@@ -14,9 +14,12 @@ const ManageUser = () => {
 
 	const handleRoleChange = (user, roleChange) => {
 		if (isAdmin) {
-			fetch(`http://localhost:5000/users/${roleChange}/${user._id}`, {
-				method: 'PATCH',
-			})
+			fetch(
+				`https://academy-of-dace-art-server.vercel.app/users/${roleChange}/${user._id}`,
+				{
+					method: 'PATCH',
+				}
+			)
 				.then((res) => res.json())
 				.then((data) => {
 					console.log(data);

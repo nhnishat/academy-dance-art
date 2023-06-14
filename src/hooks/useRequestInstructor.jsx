@@ -4,7 +4,9 @@ const useRequestInstructor = () => {
 	const { data: InstructorRequest = [], refetch } = useQuery({
 		queryKey: ['requestInstructor'],
 		queryFn: async () => {
-			const res = await fetch('http://localhost:5000/payments');
+			const res = await fetch(
+				'https://academy-of-dace-art-server.vercel.app/payments'
+			);
 			return res.json();
 		},
 	});

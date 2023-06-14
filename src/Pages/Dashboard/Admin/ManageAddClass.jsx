@@ -6,13 +6,16 @@ const ManageAddClass = () => {
 	// const axiosSecure = useAxiosSecure();
 
 	const handleAccept = (admin) => {
-		fetch(`http://localhost:5000/classes/${admin._id}`, {
-			method: 'POST',
-			headers: {
-				'content-type': 'application/json',
-			},
-			body: JSON.stringify(admin),
-		})
+		fetch(
+			`https://academy-of-dace-art-server.vercel.app/classes/${admin._id}`,
+			{
+				method: 'POST',
+				headers: {
+					'content-type': 'application/json',
+				},
+				body: JSON.stringify(admin),
+			}
+		)
 			.then((res) => res.json())
 			.then((data) => {
 				console.log(data);
@@ -21,7 +24,7 @@ const ManageAddClass = () => {
 	};
 
 	const handleDecline = (id) => {
-		fetch(`http://localhost:5000/requestadmin/${id}`, {
+		fetch(`https://academy-of-dace-art-server.vercel.app/requestadmin/${id}`, {
 			method: 'DELETE',
 		})
 			.then((res) => res.json())

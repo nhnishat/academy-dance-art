@@ -22,7 +22,7 @@ const AllClass = () => {
 				seat: item.available_seats,
 			};
 
-			fetch('http://localhost:5000/class', {
+			fetch('https://academy-of-dace-art-server.vercel.app/class', {
 				method: 'POST',
 				headers: {
 					'content-type': 'application/json',

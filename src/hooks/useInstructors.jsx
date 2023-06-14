@@ -3,7 +3,9 @@ const useInstructors = () => {
 	const { data: instructors = [] } = useQuery({
 		queryKey: ['instructor'],
 		queryFn: async () => {
-			const res = await fetch('http://localhost:5000/instructors');
+			const res = await fetch(
+				'https://academy-of-dace-art-server.vercel.app/instructors'
+			);
 			return res.json();
 		},
 	});

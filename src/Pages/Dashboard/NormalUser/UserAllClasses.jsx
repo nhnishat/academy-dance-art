@@ -17,9 +17,12 @@ const UserAllClasses = () => {
 			confirmButtonText: 'Yes, delete it!',
 		}).then((result) => {
 			if (result.isConfirmed) {
-				fetch(`http://localhost:5000/class/${item._id}`, {
-					method: 'DELETE',
-				})
+				fetch(
+					`https://academy-of-dace-art-server.vercel.app/class/${item._id}`,
+					{
+						method: 'DELETE',
+					}
+				)
 					.then((res) => res.json())
 					.then((data) => {
 						if (data.deletedCount > 0) {
