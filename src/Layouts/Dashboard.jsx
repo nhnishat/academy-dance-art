@@ -1,3 +1,4 @@
+import { Fade } from 'react-awesome-reveal';
 import { Helmet } from 'react-helmet-async';
 import { Link, Outlet } from 'react-router-dom';
 import useAdmin from '../hooks/useAdmin';
@@ -30,36 +31,50 @@ const Dashboard = () => {
 					{isAdmin && (
 						<>
 							<li>
-								<Link to="/dashboard/alluser">ManageUser</Link>
+								<Link to="/dashboard/alluser">
+									<Fade>ManageUser</Fade>
+								</Link>
 							</li>
 							<li>
-								<Link to="/dashboard/adminaddclass">Manage Add Class</Link>
+								<Link to="/dashboard/adminaddclass">
+									<Fade>Manage Add Class</Fade>
+								</Link>
 							</li>
 						</>
 					)}
 					{isInstructor && (
 						<>
 							<li>
-								<Link to="/dashboard/addclass">Add A Class</Link>
+								<Link to="/dashboard/addclass">
+									<Fade>Add A Class</Fade>
+								</Link>
 							</li>
 						</>
 					)}
 					{user && !isAdmin && !isInstructor && (
 						<>
 							<li>
-								<Link to="/dashboard/allclasses">All Classes</Link>
+								<Link to="/dashboard/allclasses">
+									<Fade>All Classes</Fade>
+								</Link>
 							</li>
 							<li>
-								<Link to="/dashboard/selectedclass">Enroll Class</Link>
+								<Link to="/dashboard/selectedclass">
+									<Fade>Enroll Class</Fade>
+								</Link>
 							</li>
 							<li>
-								<Link to="/dashboard/history">Payment History</Link>
+								<Link to="/dashboard/history">
+									<Fade>Payment History</Fade>
+								</Link>
 							</li>
 						</>
 					)}
 					<div className="divider"></div>
 					<li>
-						<Link to="/">Home</Link>
+						<Link to="/">
+							<Fade>Home</Fade>
+						</Link>
 					</li>
 				</ul>
 			</div>
