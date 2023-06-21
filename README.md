@@ -19,7 +19,3 @@
 ### Deploy Link:
 
 Live Link: https://dance-academy-client.web.app/
-
-Server Link: https://github.com/programming-hero-web-course1/b7a12-summer-camp-server_side-nhnishat
-
-Client Link: https://github.com/programming-hero-web-course1/b712-summer-camp-client-side-nhnishat
